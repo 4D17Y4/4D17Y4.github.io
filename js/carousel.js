@@ -1,4 +1,5 @@
 var a = 2;
+var clickable = true;
 window.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -31,6 +32,12 @@ function rearrange(card) {
 }
 
 function change() {
-  rearrange(a);
-  a = ++a % 3;
+  if (clickable) {
+    clickable = false;
+    rearrange(a);
+    a = ++a % 3;
+    setTimeout(function () {
+      clickable = true;
+    }, 600);
+  }
 }
